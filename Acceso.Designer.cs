@@ -29,99 +29,99 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Acceso));
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btnIngresar = new System.Windows.Forms.Button();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.ptbCocinera = new System.Windows.Forms.PictureBox();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.txbUsuario = new System.Windows.Forms.TextBox();
+            this.txbContrasenia = new System.Windows.Forms.TextBox();
+            this.lblContrasenia = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbCocinera)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // btnIngresar
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(92, 322);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(192, 38);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Ingresar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnIngresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnIngresar.FlatAppearance.BorderSize = 0;
+            this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIngresar.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngresar.ForeColor = System.Drawing.Color.White;
+            this.btnIngresar.Location = new System.Drawing.Point(92, 322);
+            this.btnIngresar.Name = "btnIngresar";
+            this.btnIngresar.Size = new System.Drawing.Size(192, 38);
+            this.btnIngresar.TabIndex = 0;
+            this.btnIngresar.Text = "Ingresar";
+            this.btnIngresar.UseVisualStyleBackColor = false;
             // 
-            // label1
+            // lblTitulo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(57, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(265, 42);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Comedor Mari";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(57, 9);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(265, 42);
+            this.lblTitulo.TabIndex = 1;
+            this.lblTitulo.Text = "Comedor Mari";
             // 
-            // pictureBox1
+            // ptbCocinera
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(92, 54);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(192, 200);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.ptbCocinera.Image = ((System.Drawing.Image)(resources.GetObject("ptbCocinera.Image")));
+            this.ptbCocinera.Location = new System.Drawing.Point(92, 54);
+            this.ptbCocinera.Name = "ptbCocinera";
+            this.ptbCocinera.Size = new System.Drawing.Size(192, 200);
+            this.ptbCocinera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbCocinera.TabIndex = 2;
+            this.ptbCocinera.TabStop = false;
             // 
-            // label2
+            // lblUsuario
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(89, 275);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Usuario:";
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Location = new System.Drawing.Point(89, 275);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(46, 13);
+            this.lblUsuario.TabIndex = 3;
+            this.lblUsuario.Text = "Usuario:";
             // 
-            // textBox1
+            // txbUsuario
             // 
-            this.textBox1.Location = new System.Drawing.Point(159, 272);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 4;
+            this.txbUsuario.Location = new System.Drawing.Point(159, 272);
+            this.txbUsuario.Name = "txbUsuario";
+            this.txbUsuario.Size = new System.Drawing.Size(100, 20);
+            this.txbUsuario.TabIndex = 4;
             // 
-            // textBox2
+            // txbContrasenia
             // 
-            this.textBox2.Location = new System.Drawing.Point(159, 296);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 5;
+            this.txbContrasenia.Location = new System.Drawing.Point(159, 296);
+            this.txbContrasenia.Name = "txbContrasenia";
+            this.txbContrasenia.PasswordChar = '*';
+            this.txbContrasenia.Size = new System.Drawing.Size(100, 20);
+            this.txbContrasenia.TabIndex = 5;
             // 
-            // label3
+            // lblContrasenia
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(89, 299);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Contraseña:";
+            this.lblContrasenia.AutoSize = true;
+            this.lblContrasenia.Location = new System.Drawing.Point(89, 299);
+            this.lblContrasenia.Name = "lblContrasenia";
+            this.lblContrasenia.Size = new System.Drawing.Size(64, 13);
+            this.lblContrasenia.TabIndex = 6;
+            this.lblContrasenia.Text = "Contraseña:";
             // 
-            // Form1
+            // Acceso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(379, 372);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.Name = "Form1";
+            this.Controls.Add(this.lblContrasenia);
+            this.Controls.Add(this.txbContrasenia);
+            this.Controls.Add(this.txbUsuario);
+            this.Controls.Add(this.lblUsuario);
+            this.Controls.Add(this.ptbCocinera);
+            this.Controls.Add(this.lblTitulo);
+            this.Controls.Add(this.btnIngresar);
+            this.Name = "Acceso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Text = "Iniciar Sesión";
+            ((System.ComponentModel.ISupportInitialize)(this.ptbCocinera)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,13 +129,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnIngresar;
+        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.PictureBox ptbCocinera;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.TextBox txbUsuario;
+        private System.Windows.Forms.TextBox txbContrasenia;
+        private System.Windows.Forms.Label lblContrasenia;
     }
 }
 
