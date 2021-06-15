@@ -31,6 +31,7 @@ CREATE TABLE `clientes` (
   `Codigo_Cliente` int(11) NOT NULL,
   `Nombre` varchar(255) NOT NULL,
   `Apellido` varchar(255) NOT NULL
+  `Telefono` int(8) NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
