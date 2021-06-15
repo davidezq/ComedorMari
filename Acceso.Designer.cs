@@ -52,7 +52,7 @@
             this.btnIngresar.TabIndex = 0;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = false;
-            // 
+            //
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
