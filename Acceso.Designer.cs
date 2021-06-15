@@ -52,7 +52,7 @@
             this.btnIngresar.TabIndex = 0;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = false;
-            //
+            // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
@@ -118,6 +118,7 @@
             this.Controls.Add(this.ptbCocinera);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnIngresar);
+            this.MaximizeBox = false;
             this.Name = "Acceso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Iniciar Sesión";

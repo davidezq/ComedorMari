@@ -205,7 +205,7 @@
             this.mtxbPrecioProducto.Location = new System.Drawing.Point(100, 101);
             this.mtxbPrecioProducto.Mask = "90.00";
             this.mtxbPrecioProducto.Name = "mtxbPrecioProducto";
-            this.mtxbPrecioProducto.Size = new System.Drawing.Size(100, 30);
+            this.mtxbPrecioProducto.Size = new System.Drawing.Size(67, 30);
             this.mtxbPrecioProducto.TabIndex = 18;
             // 
             // btnIngresarProducto
