@@ -74,6 +74,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(441, 407);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControl1_Selecting);
             // 
             // tabPage1
             // 
@@ -221,6 +222,7 @@
             this.btnIngresarProducto.TabIndex = 17;
             this.btnIngresarProducto.Text = "Ingresar";
             this.btnIngresarProducto.UseVisualStyleBackColor = false;
+            this.btnIngresarProducto.Click += new System.EventHandler(this.btnIngresarProducto_Click);
             // 
             // nudCantidadProducto
             // 

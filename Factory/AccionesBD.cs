@@ -8,7 +8,7 @@ namespace ComedorMari.Factory
 {
     public abstract class AccionesBD
     {
-        public abstract void Insertar();
+        public abstract void Insertar(List<string>Datos);
         public abstract void Mostrar();
     }
 }
