@@ -8,7 +8,7 @@ namespace ComedorMari.Factory
 {
     public class Fabrica
     {
-        public const int Cliente = 1;
+        public const int Clientes = 1;
         public const int Productos = 2;
         public const int Facturas = 3;
         
@@ -16,8 +16,8 @@ namespace ComedorMari.Factory
         {
             switch (tipo)
             {
-                //case Cliente:
-                //    return new Cliente();
+                case Clientes:
+                    return new Clientes();
                 case Productos:
                     return new Productos();
                 //case Facturas:

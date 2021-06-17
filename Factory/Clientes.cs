@@ -6,13 +6,16 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 using System.Configuration;
-using System.Windows.Forms;
 using System.Data;
+
 
 namespace ComedorMari.Factory
 {
-    class Productos : AccionesBD
+    class Clientes:AccionesBD
     {
+
+        Menu nuevo = new Menu();
+
         public override void Insertar(List<string> Datos)
         {
             using (var conexion = new MySqlConnection(ConfigurationManager.ConnectionStrings["mysql"].ConnectionString))
@@ -20,7 +23,7 @@ namespace ComedorMari.Factory
                 try
                 {
                     conexion.Open();
-                    using (var comando = new MySqlCommand($"INSERT INTO `productos`(`Nombre`,`Precio`,`Stock`) VALUES (\'{Datos[0]}\',{double.Parse(Datos[1])},{int.Parse(Datos[2])})", conexion))
+                    using (var comando = new MySqlCommand($"INSERT INTO `Clientes`(`Nombre`,`Apellido`,`Telefono`) VALUES (\'{Datos[0]}\',\'{Datos[1]}\',{int.Parse(Datos[2])})", conexion))
                     {
                         comando.ExecuteNonQuery();
                     }
@@ -28,7 +31,7 @@ namespace ComedorMari.Factory
                 }
                 catch (Exception E)
                 {
-                    MessageBox.Show(E.Message+" "+Datos[0]+" "+Datos[1]+" "+Datos[2]);
+                    MessageBox.Show(E.Message + " " + Datos[0] + " " + Datos[1] + " " + Datos[2]);
                 }
                 finally
                 {
@@ -36,31 +39,29 @@ namespace ComedorMari.Factory
                 }
             }
         }
+
         public override void Mostrar(DataGridView grid)
         {
+
             using (var conexion = new MySqlConnection(ConfigurationManager.ConnectionStrings["mysql"].ConnectionString))
             {
                 
                     conexion.Open();
-                    using (var comando = new MySqlCommand($"SELECT * FROM productos", conexion))
+                    using (var comando = new MySqlCommand($"SELECT Nombre FROM Cliente", conexion))
                     {
-                      
+                        //comando.ExecuteNonQuery();
                         MySqlDataAdapter da = new MySqlDataAdapter(comando);
                         DataTable dt = new DataTable();
+
                         da.Fill(dt);
-
-                        grid.DataSource = dt;
-
                         conexion.Close();
 
                     }
-
+                   
+                
 
             }
-               
         }
-
 
     }
 }
-

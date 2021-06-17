@@ -14,6 +14,8 @@ namespace ComedorMari
 {
     public partial class Menu : Form
     {
+        Productos cmda = new Productos();
+        Clientes cmda2 = new Clientes();
         public Menu()
         {
             InitializeComponent();
@@ -42,11 +44,46 @@ namespace ComedorMari
         {
             txbNombreCliente.Clear();
             txbApellido.Clear();
-            mtxbTelefonoCliente.Clear();
+            txbTelefonoCliente.Clear();
             txbNombreProducto.Clear();
             mtxbPrecioProducto.Clear();
             nudCantidadProducto.Value = 0;
             lbxDetalleFactura.Items.Clear();
+        }
+
+        private void btnAgregarCliente_Click(object sender, EventArgs e)
+        {
+            List<String> DatosCliente = new List<string>();
+            DatosCliente.Add(txbNombreCliente.Text);
+            DatosCliente.Add(txbApellido.Text);
+            DatosCliente.Add(txbTelefonoCliente.Text);
+            AccionesBD agregar = Fabrica.AccionesTablas(Fabrica.Clientes);
+            agregar.Insertar(DatosCliente);
+
+
+       
+            
+        }
+
+        private void lbxDetalleFactura_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbClientesFacturas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            //cmda2.Mostrar();
+        }
+
+        private void dgvProductosFactura_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+            cmda.Mostrar(dgvProductosFactura);
         }
     }
 }

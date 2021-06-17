@@ -31,7 +31,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnAgregarCliente = new System.Windows.Forms.Button();
-            this.mtxbTelefonoCliente = new System.Windows.Forms.MaskedTextBox();
+            this.txbTelefonoCliente = new System.Windows.Forms.MaskedTextBox();
             this.txbApellido = new System.Windows.Forms.TextBox();
             this.txbNombreCliente = new System.Windows.Forms.TextBox();
             this.lblTelefono = new System.Windows.Forms.Label();
@@ -52,7 +52,7 @@
             this.btnIngresarFacturas = new System.Windows.Forms.Button();
             this.btnFacturarFacturas = new System.Windows.Forms.Button();
             this.dgvProductosFactura = new System.Windows.Forms.DataGridView();
-            this.cbxClientesFacturas = new System.Windows.Forms.ComboBox();
+            this.cbClientesFacturas = new System.Windows.Forms.ComboBox();
             this.lblClienteFactura = new System.Windows.Forms.Label();
             this.lblDetalleFactura = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
@@ -80,7 +80,7 @@
             // 
             this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tabPage1.Controls.Add(this.btnAgregarCliente);
-            this.tabPage1.Controls.Add(this.mtxbTelefonoCliente);
+            this.tabPage1.Controls.Add(this.txbTelefonoCliente);
             this.tabPage1.Controls.Add(this.txbApellido);
             this.tabPage1.Controls.Add(this.txbNombreCliente);
             this.tabPage1.Controls.Add(this.lblTelefono);
@@ -107,17 +107,18 @@
             this.btnAgregarCliente.TabIndex = 16;
             this.btnAgregarCliente.Text = "Agregar";
             this.btnAgregarCliente.UseVisualStyleBackColor = false;
+            this.btnAgregarCliente.Click += new System.EventHandler(this.btnAgregarCliente_Click);
             // 
-            // mtxbTelefonoCliente
+            // txbTelefonoCliente
             // 
-            this.mtxbTelefonoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtxbTelefonoCliente.Location = new System.Drawing.Point(129, 135);
-            this.mtxbTelefonoCliente.Mask = "99999999";
-            this.mtxbTelefonoCliente.Name = "mtxbTelefonoCliente";
-            this.mtxbTelefonoCliente.Size = new System.Drawing.Size(85, 27);
-            this.mtxbTelefonoCliente.TabIndex = 15;
-            this.mtxbTelefonoCliente.Text = "25252525";
-            this.mtxbTelefonoCliente.ValidatingType = typeof(int);
+            this.txbTelefonoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbTelefonoCliente.Location = new System.Drawing.Point(129, 135);
+            this.txbTelefonoCliente.Mask = "99999999";
+            this.txbTelefonoCliente.Name = "txbTelefonoCliente";
+            this.txbTelefonoCliente.Size = new System.Drawing.Size(85, 27);
+            this.txbTelefonoCliente.TabIndex = 15;
+            this.txbTelefonoCliente.Text = "25252525";
+            this.txbTelefonoCliente.ValidatingType = typeof(int);
             // 
             // txbApellido
             // 
@@ -287,7 +288,7 @@
             this.tabPage3.Controls.Add(this.btnIngresarFacturas);
             this.tabPage3.Controls.Add(this.btnFacturarFacturas);
             this.tabPage3.Controls.Add(this.dgvProductosFactura);
-            this.tabPage3.Controls.Add(this.cbxClientesFacturas);
+            this.tabPage3.Controls.Add(this.cbClientesFacturas);
             this.tabPage3.Controls.Add(this.lblClienteFactura);
             this.tabPage3.Controls.Add(this.lblDetalleFactura);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -308,6 +309,7 @@
             this.lbxDetalleFactura.Name = "lbxDetalleFactura";
             this.lbxDetalleFactura.Size = new System.Drawing.Size(161, 79);
             this.lbxDetalleFactura.TabIndex = 20;
+            this.lbxDetalleFactura.SelectedIndexChanged += new System.EventHandler(this.lbxDetalleFactura_SelectedIndexChanged);
             // 
             // btnIngresarFacturas
             // 
@@ -344,15 +346,17 @@
             this.dgvProductosFactura.Name = "dgvProductosFactura";
             this.dgvProductosFactura.Size = new System.Drawing.Size(417, 188);
             this.dgvProductosFactura.TabIndex = 3;
+            this.dgvProductosFactura.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductosFactura_CellContentClick);
             // 
-            // cbxClientesFacturas
+            // cbClientesFacturas
             // 
-            this.cbxClientesFacturas.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxClientesFacturas.FormattingEnabled = true;
-            this.cbxClientesFacturas.Location = new System.Drawing.Point(11, 39);
-            this.cbxClientesFacturas.Name = "cbxClientesFacturas";
-            this.cbxClientesFacturas.Size = new System.Drawing.Size(155, 33);
-            this.cbxClientesFacturas.TabIndex = 2;
+            this.cbClientesFacturas.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbClientesFacturas.FormattingEnabled = true;
+            this.cbClientesFacturas.Location = new System.Drawing.Point(11, 39);
+            this.cbClientesFacturas.Name = "cbClientesFacturas";
+            this.cbClientesFacturas.Size = new System.Drawing.Size(155, 33);
+            this.cbClientesFacturas.TabIndex = 2;
+            this.cbClientesFacturas.SelectedIndexChanged += new System.EventHandler(this.cbClientesFacturas_SelectedIndexChanged);
             // 
             // lblClienteFactura
             // 
@@ -385,6 +389,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Cliente";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Menu_FormClosed);
+            this.Load += new System.EventHandler(this.Menu_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -403,7 +408,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button btnAgregarCliente;
-        private System.Windows.Forms.MaskedTextBox mtxbTelefonoCliente;
+        private System.Windows.Forms.MaskedTextBox txbTelefonoCliente;
         private System.Windows.Forms.TextBox txbApellido;
         private System.Windows.Forms.TextBox txbNombreCliente;
         private System.Windows.Forms.Label lblTelefono;
@@ -421,7 +426,7 @@
         private System.Windows.Forms.Label lblAgregarProducto;
         private System.Windows.Forms.Button btnFacturarFacturas;
         private System.Windows.Forms.DataGridView dgvProductosFactura;
-        private System.Windows.Forms.ComboBox cbxClientesFacturas;
+        private System.Windows.Forms.ComboBox cbClientesFacturas;
         private System.Windows.Forms.Label lblClienteFactura;
         private System.Windows.Forms.Label lblDetalleFactura;
         private System.Windows.Forms.MaskedTextBox mtxbPrecioProducto;
