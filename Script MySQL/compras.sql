@@ -30,8 +30,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `clientes` (
   `Codigo_Cliente` int(11) NOT NULL,
   `Nombre` varchar(255) NOT NULL,
-  `Apellido` varchar(255) NOT NULL
-  `Telefono` int(8) NULL,
+  `Apellido` varchar(255) NOT NULL,
+  `Telefono` int(8) NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -66,7 +66,7 @@ CREATE TABLE `listado_compras` (
 CREATE TABLE `productos` (
   `Codigo_Producto` int(11) NOT NULL,
   `Nombre` varchar(255) NOT NULL,
-  `Precio` int(11) NOT NULL,
+  `Precio` double NOT NULL,
   `Stock` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -99,7 +99,9 @@ ALTER TABLE `listado_compras`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`Codigo_Producto`);
-
+ALTER TABLE `productos` 
+  modify `Codigo_Producto` int AUTO_INCREMENT;
+  
 --
 -- Restricciones para tablas volcadas
 --

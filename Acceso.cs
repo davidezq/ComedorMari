@@ -17,5 +17,17 @@ namespace ComedorMari
         {
             InitializeComponent();
         }
+
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+            string usuario = txbUsuario.Text;
+            string contrasenia = txbContrasenia.Text;
+            if (usuario == "mari" && contrasenia == "12345")
+            {
+                Menu menu = new Menu();
+                menu.Show();
+                this.Hide();
+            }
+        }
     }
 }
