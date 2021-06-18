@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComedorMari.Factory;
+using Microsoft.VisualBasic;
 
 namespace ComedorMari
 {
@@ -31,7 +32,6 @@ namespace ComedorMari
             List<string> Datos = new List<string>();
             Datos.Add(txbNombreProducto.Text);
             Datos.Add(mtxbPrecioProducto.Text);
-            Datos.Add(nudCantidadProducto.Value.ToString());
             AccionesBD agregar = Fabrica.AccionesTablas(Fabrica.Productos);
             agregar.Insertar(Datos);
             cmda.Mostrar(dgvProductosFactura);
@@ -48,7 +48,6 @@ namespace ComedorMari
             txbTelefonoCliente.Clear();
             txbNombreProducto.Clear();
             mtxbPrecioProducto.Clear();
-            nudCantidadProducto.Value = 0;
           
         }
 
@@ -62,120 +61,74 @@ namespace ComedorMari
             agregar.Insertar(DatosCliente);
             cbClientesFacturas.Items.Clear();
             cmda2.LlenarCombo(cbClientesFacturas);
-
-
-
-
-
-
-
         }
-
-        private void lbxDetalleFactura_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void cbClientesFacturas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MostrarDetalleCliente();
+        }
+        private void MostrarDetalleCliente()
         {
             string Unido;
             char delimitador = '-';
-
             Unido = cbClientesFacturas.SelectedItem.ToString();
-
             string[] valores = Unido.Split(delimitador);
-
-           cmda.LlenarDetalle(dgvDetalle, valores[0]);
-
+            cmda.LlenarDetalle(dgvDetalle, valores[0]);
+            lbtotal.Text = "$" + TotalPagar();
+            
+        }
+        private string TotalPagar()
+        {
             double SumTotal = 0;
             foreach (DataGridViewRow row in dgvDetalle.Rows)
             {
                 if (row.Cells[1].Value != null)
                 {
-                    SumTotal += (double)row.Cells[1].Value;
+                    SumTotal += (double)row.Cells[1].Value * (int)row.Cells[2].Value;
                 }
-
-                
-
             }
-
-            lbtotal.Text = "$" + SumTotal.ToString();
-
-
-
-
+            return SumTotal.ToString();
         }
-
-        private void dgvProductosFactura_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void Menu_Load(object sender, EventArgs e)
-        {
-
-           
-
-
-
+        { 
             cmda.Mostrar(dgvProductosFactura);
-         
             cmda2.LlenarCombo(cbClientesFacturas);
-
+            cbClientesFacturas.SelectedItem=null;
         }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblAgregarProducto_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnIngresarFacturas_Click(object sender, EventArgs e)
         {
             List<String> DatosDetalle= new List<string>();
-
             string Unido;
             char delimitador = '-';
-            
             Unido = cbClientesFacturas.SelectedItem.ToString();
-
             string[] valores = Unido.Split(delimitador);
-
+            var cantidad = Interaction.InputBox("Cantidad", dgvProductosFactura.CurrentRow.Cells[1].Value.ToString());
+            //agregando datos a la lista
             DatosDetalle.Add(valores[0]);
-
             DatosDetalle.Add(dgvProductosFactura.CurrentCell.Value.ToString());
-
+            DatosDetalle.Add(cantidad);
             AccionesBD agregar = Fabrica.AccionesTablas(Fabrica.Productos);
-
             agregar.IngresarCompra(DatosDetalle);
-
-
-
-
+            //Actualiza los DataGridView
+            cmda.Mostrar(dgvProductosFactura);
+            MostrarDetalleCliente();
         }
 
-        private void tabPage3_Click(object sender, EventArgs e)
+        private void btnFacturarFacturas_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void lblDetalleFactura_Click(object sender, EventArgs e)
-        {
-
+            AccionesBD agregar = Fabrica.AccionesTablas(Fabrica.Productos);
+            string Unido;
+            char delimitador = '-';
+            Unido = cbClientesFacturas.SelectedItem.ToString();
+            string[] valores = Unido.Split(delimitador);
+            string dia = DateTime.Now.ToString("dddd");
+            if(dia.ToLower()=="sábado" || dia.ToLower() == "saturday")
+            {
+                agregar.Factura(int.Parse(valores[0]),int.Parse(TotalPagar()));
+            }
+            else
+            {
+                MessageBox.Show("Sólo se puede facturar los días sábados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

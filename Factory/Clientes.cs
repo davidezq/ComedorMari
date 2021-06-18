@@ -13,9 +13,6 @@ namespace ComedorMari.Factory
 {
     class Clientes : AccionesBD
     {
-
-
-
         //inserta Clientes a la base de datos
         public override void Insertar(List<string> Datos)
         {
@@ -40,13 +37,9 @@ namespace ComedorMari.Factory
                 }
             }
         }
-
-
         public override void Mostrar(DataGridView grid)
         {
-
         }
-
         //para llenar el combobox del apartado de factura
         public string id_cliente;
         public override void LlenarCombo(ComboBox cb)
@@ -83,23 +76,21 @@ namespace ComedorMari.Factory
                     conexion.Close();
                 }
             }
-
-
         }
 
 
         public override void IngresarCompra(List<string> Datos) 
         {
-
         }
 
 
         public override void LlenarDetalle(DataGridView grid, string Num)
         {
-           
         }
 
-
+        public override void Factura(int idCliente,int total)
+        {
+        }
     }
 
 }

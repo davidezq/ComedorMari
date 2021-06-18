@@ -41,28 +41,25 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.mtxbPrecioProducto = new System.Windows.Forms.MaskedTextBox();
             this.btnIngresarProducto = new System.Windows.Forms.Button();
-            this.nudCantidadProducto = new System.Windows.Forms.NumericUpDown();
             this.txbNombreProducto = new System.Windows.Forms.TextBox();
-            this.lblCantidadProducto = new System.Windows.Forms.Label();
             this.lblPrecioProducto = new System.Windows.Forms.Label();
             this.lblNombreProducto = new System.Windows.Forms.Label();
             this.lblAgregarProducto = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.lbtotal = new System.Windows.Forms.Label();
+            this.dgvDetalle = new System.Windows.Forms.DataGridView();
             this.btnIngresarFacturas = new System.Windows.Forms.Button();
             this.btnFacturarFacturas = new System.Windows.Forms.Button();
             this.dgvProductosFactura = new System.Windows.Forms.DataGridView();
             this.cbClientesFacturas = new System.Windows.Forms.ComboBox();
             this.lblClienteFactura = new System.Windows.Forms.Label();
             this.lblDetalleFactura = new System.Windows.Forms.Label();
-            this.dgvDetalle = new System.Windows.Forms.DataGridView();
-            this.lbtotal = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadProducto)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductosFactura)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductosFactura)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -92,10 +89,9 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(433, 381);
+            this.tabPage1.Size = new System.Drawing.Size(662, 427);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Cliente";
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // btnAgregarCliente
             // 
@@ -120,7 +116,6 @@
             this.txbTelefonoCliente.Name = "txbTelefonoCliente";
             this.txbTelefonoCliente.Size = new System.Drawing.Size(85, 27);
             this.txbTelefonoCliente.TabIndex = 15;
-            this.txbTelefonoCliente.Text = "25252525";
             this.txbTelefonoCliente.ValidatingType = typeof(int);
             // 
             // txbApellido
@@ -138,7 +133,6 @@
             this.txbNombreCliente.Name = "txbNombreCliente";
             this.txbNombreCliente.Size = new System.Drawing.Size(100, 27);
             this.txbNombreCliente.TabIndex = 13;
-            this.txbNombreCliente.Text = "Juan Carlos";
             // 
             // lblTelefono
             // 
@@ -191,19 +185,16 @@
             this.tabPage2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tabPage2.Controls.Add(this.mtxbPrecioProducto);
             this.tabPage2.Controls.Add(this.btnIngresarProducto);
-            this.tabPage2.Controls.Add(this.nudCantidadProducto);
             this.tabPage2.Controls.Add(this.txbNombreProducto);
-            this.tabPage2.Controls.Add(this.lblCantidadProducto);
             this.tabPage2.Controls.Add(this.lblPrecioProducto);
             this.tabPage2.Controls.Add(this.lblNombreProducto);
             this.tabPage2.Controls.Add(this.lblAgregarProducto);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(433, 381);
+            this.tabPage2.Size = new System.Drawing.Size(662, 427);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Productos";
-            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // mtxbPrecioProducto
             // 
@@ -229,14 +220,6 @@
             this.btnIngresarProducto.UseVisualStyleBackColor = false;
             this.btnIngresarProducto.Click += new System.EventHandler(this.btnIngresarProducto_Click);
             // 
-            // nudCantidadProducto
-            // 
-            this.nudCantidadProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudCantidadProducto.Location = new System.Drawing.Point(120, 137);
-            this.nudCantidadProducto.Name = "nudCantidadProducto";
-            this.nudCantidadProducto.Size = new System.Drawing.Size(47, 30);
-            this.nudCantidadProducto.TabIndex = 6;
-            // 
             // txbNombreProducto
             // 
             this.txbNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -244,16 +227,6 @@
             this.txbNombreProducto.Name = "txbNombreProducto";
             this.txbNombreProducto.Size = new System.Drawing.Size(100, 30);
             this.txbNombreProducto.TabIndex = 4;
-            // 
-            // lblCantidadProducto
-            // 
-            this.lblCantidadProducto.AutoSize = true;
-            this.lblCantidadProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidadProducto.Location = new System.Drawing.Point(21, 139);
-            this.lblCantidadProducto.Name = "lblCantidadProducto";
-            this.lblCantidadProducto.Size = new System.Drawing.Size(97, 25);
-            this.lblCantidadProducto.TabIndex = 3;
-            this.lblCantidadProducto.Text = "Cantidad:";
             // 
             // lblPrecioProducto
             // 
@@ -284,7 +257,6 @@
             this.lblAgregarProducto.Size = new System.Drawing.Size(304, 39);
             this.lblAgregarProducto.TabIndex = 0;
             this.lblAgregarProducto.Text = "Agregar Producto";
-            this.lblAgregarProducto.Click += new System.EventHandler(this.lblAgregarProducto_Click);
             // 
             // tabPage3
             // 
@@ -302,7 +274,23 @@
             this.tabPage3.Size = new System.Drawing.Size(662, 427);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Facturas";
-            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
+            // 
+            // lbtotal
+            // 
+            this.lbtotal.AutoSize = true;
+            this.lbtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtotal.Location = new System.Drawing.Point(500, 328);
+            this.lbtotal.Name = "lbtotal";
+            this.lbtotal.Size = new System.Drawing.Size(0, 25);
+            this.lbtotal.TabIndex = 21;
+            // 
+            // dgvDetalle
+            // 
+            this.dgvDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalle.Location = new System.Drawing.Point(416, 127);
+            this.dgvDetalle.Name = "dgvDetalle";
+            this.dgvDetalle.Size = new System.Drawing.Size(220, 188);
+            this.dgvDetalle.TabIndex = 20;
             // 
             // btnIngresarFacturas
             // 
@@ -332,15 +320,16 @@
             this.btnFacturarFacturas.TabIndex = 18;
             this.btnFacturarFacturas.Text = "Facturar";
             this.btnFacturarFacturas.UseVisualStyleBackColor = false;
+            this.btnFacturarFacturas.Click += new System.EventHandler(this.btnFacturarFacturas_Click);
             // 
             // dgvProductosFactura
             // 
             this.dgvProductosFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductosFactura.Location = new System.Drawing.Point(8, 127);
             this.dgvProductosFactura.Name = "dgvProductosFactura";
+            this.dgvProductosFactura.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProductosFactura.Size = new System.Drawing.Size(360, 188);
             this.dgvProductosFactura.TabIndex = 3;
-            this.dgvProductosFactura.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductosFactura_CellContentClick);
             // 
             // cbClientesFacturas
             // 
@@ -350,6 +339,7 @@
             this.cbClientesFacturas.Name = "cbClientesFacturas";
             this.cbClientesFacturas.Size = new System.Drawing.Size(155, 33);
             this.cbClientesFacturas.TabIndex = 2;
+            this.cbClientesFacturas.Text = "Clientes";
             this.cbClientesFacturas.SelectedIndexChanged += new System.EventHandler(this.cbClientesFacturas_SelectedIndexChanged);
             // 
             // lblClienteFactura
@@ -371,24 +361,6 @@
             this.lblDetalleFactura.Size = new System.Drawing.Size(82, 25);
             this.lblDetalleFactura.TabIndex = 0;
             this.lblDetalleFactura.Text = "Detalles";
-            this.lblDetalleFactura.Click += new System.EventHandler(this.lblDetalleFactura_Click);
-            // 
-            // dgvDetalle
-            // 
-            this.dgvDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetalle.Location = new System.Drawing.Point(416, 127);
-            this.dgvDetalle.Name = "dgvDetalle";
-            this.dgvDetalle.Size = new System.Drawing.Size(220, 188);
-            this.dgvDetalle.TabIndex = 20;
-            // 
-            // lbtotal
-            // 
-            this.lbtotal.AutoSize = true;
-            this.lbtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbtotal.Location = new System.Drawing.Point(500, 328);
-            this.lbtotal.Name = "lbtotal";
-            this.lbtotal.Size = new System.Drawing.Size(0, 25);
-            this.lbtotal.TabIndex = 21;
             // 
             // Menu
             // 
@@ -407,11 +379,10 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadProducto)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductosFactura)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductosFactura)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -431,9 +402,7 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button btnIngresarProducto;
-        private System.Windows.Forms.NumericUpDown nudCantidadProducto;
         private System.Windows.Forms.TextBox txbNombreProducto;
-        private System.Windows.Forms.Label lblCantidadProducto;
         private System.Windows.Forms.Label lblPrecioProducto;
         private System.Windows.Forms.Label lblNombreProducto;
         private System.Windows.Forms.Label lblAgregarProducto;

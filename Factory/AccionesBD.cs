@@ -20,5 +20,7 @@ namespace ComedorMari.Factory
 
         public abstract void LlenarDetalle(DataGridView grid, string Num);
 
+        public abstract void Factura(int id,int total);
+
     }
 }

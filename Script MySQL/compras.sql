@@ -34,16 +34,6 @@ CREATE TABLE `clientes` (
   `Telefono` int(8) NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `factura`
---
-
-CREATE TABLE `factura` (
-  `Codigo_Factura` int(11) NOT NULL,
-  `Codigo_Listado` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -54,7 +44,8 @@ CREATE TABLE `factura` (
 CREATE TABLE `listado_compras` (
   `Codigo_Lista` int(11) NOT NULL,
   `Codigo_Cliente` int(11) NOT NULL,
-  `Codigo_Producto` int(11) NOT NULL
+  `Codigo_Producto` int(11) NOT NULL,
+  `Cantidad_Producto` int (11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -67,7 +58,6 @@ CREATE TABLE `productos` (
   `Codigo_Producto` int(11) NOT NULL,
   `Nombre` varchar(255) NOT NULL,
   `Precio` double NOT NULL,
-  `Stock` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -79,18 +69,16 @@ CREATE TABLE `productos` (
 --
 ALTER TABLE `clientes`
   ADD PRIMARY KEY (`Codigo_Cliente`);
+ALTER TABLE `clientes` 
+  modify `Codigo_Cliente` int AUTO_INCREMENT;
 
---
--- Indices de la tabla `factura`
---
-ALTER TABLE `factura`
-  ADD KEY `Fk_Factura` (`Codigo_Listado`);
 
 --
 -- Indices de la tabla `listado_compras`
 --
 ALTER TABLE `listado_compras`
   ADD PRIMARY KEY (`Codigo_Lista`),
+  MODIFY `Codigo_Lista` int AUTO_INCREMENT,
   ADD KEY `Fk_Cliente_Factura` (`Codigo_Cliente`),
   ADD KEY `Fk_Codigo_Factura` (`Codigo_Producto`);
 
@@ -105,12 +93,6 @@ ALTER TABLE `productos`
 --
 -- Restricciones para tablas volcadas
 --
-
---
--- Filtros para la tabla `factura`
---
-ALTER TABLE `factura`
-  ADD CONSTRAINT `Fk_Factura` FOREIGN KEY (`Codigo_Listado`) REFERENCES `listado_compras` (`Codigo_Lista`);
 
 --
 -- Filtros para la tabla `listado_compras`
