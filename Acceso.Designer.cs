@@ -123,6 +123,7 @@
             this.Name = "Acceso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Iniciar Sesión";
+            this.Load += new System.EventHandler(this.Acceso_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ptbCocinera)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

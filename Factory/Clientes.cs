@@ -11,11 +11,12 @@ using System.Data;
 
 namespace ComedorMari.Factory
 {
-    class Clientes:AccionesBD
+    class Clientes : AccionesBD
     {
 
-        Menu nuevo = new Menu();
 
+
+        //inserta Clientes a la base de datos
         public override void Insertar(List<string> Datos)
         {
             using (var conexion = new MySqlConnection(ConfigurationManager.ConnectionStrings["mysql"].ConnectionString))
@@ -27,7 +28,7 @@ namespace ComedorMari.Factory
                     {
                         comando.ExecuteNonQuery();
                     }
-                    MessageBox.Show("Producto agregado correctamente", "Proceso exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Cliente agregado correctamente", "Proceso exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception E)
                 {
@@ -40,28 +41,66 @@ namespace ComedorMari.Factory
             }
         }
 
+
         public override void Mostrar(DataGridView grid)
         {
 
-            using (var conexion = new MySqlConnection(ConfigurationManager.ConnectionStrings["mysql"].ConnectionString))
-            {
-                
-                    conexion.Open();
-                    using (var comando = new MySqlCommand($"SELECT Nombre FROM Cliente", conexion))
-                    {
-                        //comando.ExecuteNonQuery();
-                        MySqlDataAdapter da = new MySqlDataAdapter(comando);
-                        DataTable dt = new DataTable();
-
-                        da.Fill(dt);
-                        conexion.Close();
-
-                    }
-                   
-                
-
-            }
         }
 
+        //para llenar el combobox del apartado de factura
+        public string id_cliente;
+        public override void LlenarCombo(ComboBox cb)
+        {
+            using (var conexion = new MySqlConnection(ConfigurationManager.ConnectionStrings["mysql"].ConnectionString))
+            {
+                try
+                {
+                    conexion.Open();
+                    using (var comando = new MySqlCommand($"SELECT Codigo_cliente, Nombre FROM clientes", conexion))
+                    {
+                        MySqlDataReader dr;
+
+                        dr = comando.ExecuteReader();
+                        
+                        while (dr.Read())
+                        {
+                            cb.Items.Add(dr["Codigo_cliente"].ToString() + " - " + dr["Nombre"].ToString());
+                       
+                        }
+                        dr.Close();
+
+                    }
+
+                  
+
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show("No se lleno el ComboBox: " + Ex.ToString());
+                }
+                finally
+                {
+                    conexion.Close();
+                }
+            }
+
+
+        }
+
+
+        public override void IngresarCompra(List<string> Datos) 
+        {
+
+        }
+
+
+        public override void LlenarDetalle(DataGridView grid, string Num)
+        {
+           
+        }
+
+
     }
+
 }
+

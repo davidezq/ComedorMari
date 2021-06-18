@@ -12,5 +12,13 @@ namespace ComedorMari.Factory
     {
         public abstract void Insertar(List<string>Datos);
         public abstract void Mostrar(DataGridView grid);
+
+        public abstract void LlenarCombo(ComboBox cb);
+
+        //
+        public abstract void IngresarCompra(List<string> Datos);
+
+        public abstract void LlenarDetalle(DataGridView grid, string Num);
+
     }
 }

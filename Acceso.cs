@@ -29,5 +29,10 @@ namespace ComedorMari
                 this.Hide();
             }
         }
+
+        private void Acceso_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

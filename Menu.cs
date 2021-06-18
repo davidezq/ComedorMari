@@ -34,6 +34,7 @@ namespace ComedorMari
             Datos.Add(nudCantidadProducto.Value.ToString());
             AccionesBD agregar = Fabrica.AccionesTablas(Fabrica.Productos);
             agregar.Insertar(Datos);
+            cmda.Mostrar(dgvProductosFactura);
         }
 
         private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
@@ -48,7 +49,7 @@ namespace ComedorMari
             txbNombreProducto.Clear();
             mtxbPrecioProducto.Clear();
             nudCantidadProducto.Value = 0;
-            lbxDetalleFactura.Items.Clear();
+          
         }
 
         private void btnAgregarCliente_Click(object sender, EventArgs e)
@@ -59,10 +60,15 @@ namespace ComedorMari
             DatosCliente.Add(txbTelefonoCliente.Text);
             AccionesBD agregar = Fabrica.AccionesTablas(Fabrica.Clientes);
             agregar.Insertar(DatosCliente);
+            cbClientesFacturas.Items.Clear();
+            cmda2.LlenarCombo(cbClientesFacturas);
 
 
-       
-            
+
+
+
+
+
         }
 
         private void lbxDetalleFactura_SelectedIndexChanged(object sender, EventArgs e)
@@ -72,8 +78,32 @@ namespace ComedorMari
 
         private void cbClientesFacturas_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string Unido;
+            char delimitador = '-';
 
-            //cmda2.Mostrar();
+            Unido = cbClientesFacturas.SelectedItem.ToString();
+
+            string[] valores = Unido.Split(delimitador);
+
+           cmda.LlenarDetalle(dgvDetalle, valores[0]);
+
+            double SumTotal = 0;
+            foreach (DataGridViewRow row in dgvDetalle.Rows)
+            {
+                if (row.Cells[1].Value != null)
+                {
+                    SumTotal += (double)row.Cells[1].Value;
+                }
+
+                
+
+            }
+
+            lbtotal.Text = "$" + SumTotal.ToString();
+
+
+
+
         }
 
         private void dgvProductosFactura_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -83,7 +113,69 @@ namespace ComedorMari
 
         private void Menu_Load(object sender, EventArgs e)
         {
+
+           
+
+
+
             cmda.Mostrar(dgvProductosFactura);
+         
+            cmda2.LlenarCombo(cbClientesFacturas);
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAgregarProducto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnIngresarFacturas_Click(object sender, EventArgs e)
+        {
+            List<String> DatosDetalle= new List<string>();
+
+            string Unido;
+            char delimitador = '-';
+            
+            Unido = cbClientesFacturas.SelectedItem.ToString();
+
+            string[] valores = Unido.Split(delimitador);
+
+            DatosDetalle.Add(valores[0]);
+
+            DatosDetalle.Add(dgvProductosFactura.CurrentCell.Value.ToString());
+
+            AccionesBD agregar = Fabrica.AccionesTablas(Fabrica.Productos);
+
+            agregar.IngresarCompra(DatosDetalle);
+
+
+
+
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDetalleFactura_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

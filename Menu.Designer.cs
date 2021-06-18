@@ -48,19 +48,21 @@
             this.lblNombreProducto = new System.Windows.Forms.Label();
             this.lblAgregarProducto = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.lbxDetalleFactura = new System.Windows.Forms.ListBox();
             this.btnIngresarFacturas = new System.Windows.Forms.Button();
             this.btnFacturarFacturas = new System.Windows.Forms.Button();
             this.dgvProductosFactura = new System.Windows.Forms.DataGridView();
             this.cbClientesFacturas = new System.Windows.Forms.ComboBox();
             this.lblClienteFactura = new System.Windows.Forms.Label();
             this.lblDetalleFactura = new System.Windows.Forms.Label();
+            this.dgvDetalle = new System.Windows.Forms.DataGridView();
+            this.lbtotal = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadProducto)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductosFactura)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -72,7 +74,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(441, 407);
+            this.tabControl1.Size = new System.Drawing.Size(670, 453);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControl1_Selecting);
             // 
@@ -93,6 +95,7 @@
             this.tabPage1.Size = new System.Drawing.Size(433, 381);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Cliente";
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // btnAgregarCliente
             // 
@@ -200,6 +203,7 @@
             this.tabPage2.Size = new System.Drawing.Size(433, 381);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Productos";
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // mtxbPrecioProducto
             // 
@@ -280,11 +284,13 @@
             this.lblAgregarProducto.Size = new System.Drawing.Size(304, 39);
             this.lblAgregarProducto.TabIndex = 0;
             this.lblAgregarProducto.Text = "Agregar Producto";
+            this.lblAgregarProducto.Click += new System.EventHandler(this.lblAgregarProducto_Click);
             // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabPage3.Controls.Add(this.lbxDetalleFactura);
+            this.tabPage3.Controls.Add(this.lbtotal);
+            this.tabPage3.Controls.Add(this.dgvDetalle);
             this.tabPage3.Controls.Add(this.btnIngresarFacturas);
             this.tabPage3.Controls.Add(this.btnFacturarFacturas);
             this.tabPage3.Controls.Add(this.dgvProductosFactura);
@@ -293,23 +299,10 @@
             this.tabPage3.Controls.Add(this.lblDetalleFactura);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(433, 381);
+            this.tabPage3.Size = new System.Drawing.Size(662, 427);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Facturas";
-            // 
-            // lbxDetalleFactura
-            // 
-            this.lbxDetalleFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbxDetalleFactura.FormattingEnabled = true;
-            this.lbxDetalleFactura.ItemHeight = 25;
-            this.lbxDetalleFactura.Items.AddRange(new object[] {
-            "Sopa",
-            "Carne"});
-            this.lbxDetalleFactura.Location = new System.Drawing.Point(264, 39);
-            this.lbxDetalleFactura.Name = "lbxDetalleFactura";
-            this.lbxDetalleFactura.Size = new System.Drawing.Size(161, 79);
-            this.lbxDetalleFactura.TabIndex = 20;
-            this.lbxDetalleFactura.SelectedIndexChanged += new System.EventHandler(this.lbxDetalleFactura_SelectedIndexChanged);
+            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
             // btnIngresarFacturas
             // 
@@ -318,12 +311,13 @@
             this.btnIngresarFacturas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIngresarFacturas.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngresarFacturas.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnIngresarFacturas.Location = new System.Drawing.Point(11, 89);
+            this.btnIngresarFacturas.Location = new System.Drawing.Point(148, 337);
             this.btnIngresarFacturas.Name = "btnIngresarFacturas";
             this.btnIngresarFacturas.Size = new System.Drawing.Size(124, 32);
             this.btnIngresarFacturas.TabIndex = 19;
             this.btnIngresarFacturas.Text = "Ingresar";
             this.btnIngresarFacturas.UseVisualStyleBackColor = false;
+            this.btnIngresarFacturas.Click += new System.EventHandler(this.btnIngresarFacturas_Click);
             // 
             // btnFacturarFacturas
             // 
@@ -332,7 +326,7 @@
             this.btnFacturarFacturas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFacturarFacturas.Font = new System.Drawing.Font("Ebrima", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFacturarFacturas.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnFacturarFacturas.Location = new System.Drawing.Point(301, 331);
+            this.btnFacturarFacturas.Location = new System.Drawing.Point(441, 368);
             this.btnFacturarFacturas.Name = "btnFacturarFacturas";
             this.btnFacturarFacturas.Size = new System.Drawing.Size(124, 32);
             this.btnFacturarFacturas.TabIndex = 18;
@@ -344,7 +338,7 @@
             this.dgvProductosFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductosFactura.Location = new System.Drawing.Point(8, 127);
             this.dgvProductosFactura.Name = "dgvProductosFactura";
-            this.dgvProductosFactura.Size = new System.Drawing.Size(417, 188);
+            this.dgvProductosFactura.Size = new System.Drawing.Size(360, 188);
             this.dgvProductosFactura.TabIndex = 3;
             this.dgvProductosFactura.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductosFactura_CellContentClick);
             // 
@@ -352,7 +346,7 @@
             // 
             this.cbClientesFacturas.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbClientesFacturas.FormattingEnabled = true;
-            this.cbClientesFacturas.Location = new System.Drawing.Point(11, 39);
+            this.cbClientesFacturas.Location = new System.Drawing.Point(13, 62);
             this.cbClientesFacturas.Name = "cbClientesFacturas";
             this.cbClientesFacturas.Size = new System.Drawing.Size(155, 33);
             this.cbClientesFacturas.TabIndex = 2;
@@ -362,7 +356,7 @@
             // 
             this.lblClienteFactura.AutoSize = true;
             this.lblClienteFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClienteFactura.Location = new System.Drawing.Point(8, 11);
+            this.lblClienteFactura.Location = new System.Drawing.Point(8, 22);
             this.lblClienteFactura.Name = "lblClienteFactura";
             this.lblClienteFactura.Size = new System.Drawing.Size(79, 25);
             this.lblClienteFactura.TabIndex = 1;
@@ -372,18 +366,36 @@
             // 
             this.lblDetalleFactura.AutoSize = true;
             this.lblDetalleFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetalleFactura.Location = new System.Drawing.Point(259, 11);
+            this.lblDetalleFactura.Location = new System.Drawing.Point(469, 82);
             this.lblDetalleFactura.Name = "lblDetalleFactura";
             this.lblDetalleFactura.Size = new System.Drawing.Size(82, 25);
             this.lblDetalleFactura.TabIndex = 0;
             this.lblDetalleFactura.Text = "Detalles";
+            this.lblDetalleFactura.Click += new System.EventHandler(this.lblDetalleFactura_Click);
+            // 
+            // dgvDetalle
+            // 
+            this.dgvDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalle.Location = new System.Drawing.Point(416, 127);
+            this.dgvDetalle.Name = "dgvDetalle";
+            this.dgvDetalle.Size = new System.Drawing.Size(220, 188);
+            this.dgvDetalle.TabIndex = 20;
+            // 
+            // lbtotal
+            // 
+            this.lbtotal.AutoSize = true;
+            this.lbtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtotal.Location = new System.Drawing.Point(500, 328);
+            this.lbtotal.Name = "lbtotal";
+            this.lbtotal.Size = new System.Drawing.Size(0, 25);
+            this.lbtotal.TabIndex = 21;
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(441, 407);
+            this.ClientSize = new System.Drawing.Size(670, 453);
             this.Controls.Add(this.tabControl1);
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -399,6 +411,7 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductosFactura)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -431,6 +444,7 @@
         private System.Windows.Forms.Label lblDetalleFactura;
         private System.Windows.Forms.MaskedTextBox mtxbPrecioProducto;
         private System.Windows.Forms.Button btnIngresarFacturas;
-        private System.Windows.Forms.ListBox lbxDetalleFactura;
+        private System.Windows.Forms.DataGridView dgvDetalle;
+        private System.Windows.Forms.Label lbtotal;
     }
 }
