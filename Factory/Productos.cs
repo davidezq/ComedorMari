@@ -20,6 +20,9 @@ namespace ComedorMari.Factory
 {
     class Productos : AccionesBD
     {
+        //Clase que realiza todas las tareas relacionadas con la base de datos
+
+        //Procedimiento
         public override void Insertar(List<string> Datos)
         {
             using (var conexion = new MySqlConnection(ConfigurationManager.ConnectionStrings["mysql"].ConnectionString))
@@ -171,8 +174,12 @@ namespace ComedorMari.Factory
                     {
                         nombreCompleto = (lector[0].ToString()+" "+lector[1].ToString());
                     }
+                //Borrando los pedidos de la bd
+                using (var comando = new MySqlCommand($"DELETE FROM listado_compras WHERE Codigo_Cliente={idCliente}", conexion))
+                {
+                    comando.ExecuteNonQuery();
+                }
                     conexion.Close();
-
             }
             //Creando el archivo pdf
             PdfWriter escritorPdf = new PdfWriter($"Factura-{nombreCompleto}.pdf");

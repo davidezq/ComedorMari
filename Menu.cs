@@ -129,6 +129,7 @@ namespace ComedorMari
             {
                 MessageBox.Show("Sólo se puede facturar los días sábados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            MostrarDetalleCliente();
         }
     }
 }

@@ -8,6 +8,8 @@ using System.Windows.Forms;
 
 namespace ComedorMari.Factory
 {
+    //Clase abstract para implementar Factory method
+    //En esta clase estan las diferentes funciones que heredaran la clase clientes y la clase productos
     public abstract class AccionesBD
     {
         public abstract void Insertar(List<string>Datos);
