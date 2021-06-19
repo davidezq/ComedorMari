@@ -136,7 +136,7 @@ namespace ComedorMari.Factory
                 conexion.Close();
             }
         }
-        public override void Factura(int idCliente,int total)
+        public override void Factura(int idCliente)
         {
             
             //Preparando el documento
@@ -148,7 +148,7 @@ namespace ComedorMari.Factory
             tabla.SetWidth(UnitValue.CreatePercentValue(90));
             string nombreCompleto="";
             var consumo = new Paragraph("Consumo:");
-            var totalPagar = new Paragraph("El total a pagar es de: $"+total.ToString());
+            string totalPagar = "";
             //Construyendo tabla
             foreach (string columna in columnas)
             {
@@ -174,7 +174,15 @@ namespace ComedorMari.Factory
                     {
                         nombreCompleto = (lector[0].ToString()+" "+lector[1].ToString());
                     }
-                //Borrando los pedidos de la bd
+                using (var comando = new MySqlCommand($"SELECT SUM(Cantidad_Producto * productos.Precio) as total FROM listado_compras INNER JOIN productos ON productos.Codigo_Producto=listado_compras.Codigo_Producto where Codigo_Cliente={idCliente}", conexion))
+                using(var lector = comando.ExecuteReader())
+                {
+                    while (lector.Read())
+                    {
+                        totalPagar = (lector[0].ToString());
+                    }
+                }
+                    //Borrando los pedidos de la bd
                 using (var comando = new MySqlCommand($"DELETE FROM listado_compras WHERE Codigo_Cliente={idCliente}", conexion))
                 {
                     comando.ExecuteNonQuery();
@@ -193,7 +201,7 @@ namespace ComedorMari.Factory
             documento.Add(new Paragraph("Nombre Completo: "+nombreCompleto));
             documento.Add(consumo);
             documento.Add(tabla);
-            documento.Add(totalPagar);
+            documento.Add(new Paragraph("El total a pagar es de: $"+totalPagar));
             #endregion Escribiendo los datos al documento
 
             //Cerrando el documento

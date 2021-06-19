@@ -32,6 +32,8 @@ namespace ComedorMari
             List<string> Datos = new List<string>();
             Datos.Add(txbNombreProducto.Text);
             Datos.Add(mtxbPrecioProducto.Text);
+            /*Creamos un objeto del tipo de la clase abstracat y mandamos a llamar a la clase
+             fabrica*/
             AccionesBD agregar = Fabrica.AccionesTablas(Fabrica.Productos);
             agregar.Insertar(Datos);
             cmda.Mostrar(dgvProductosFactura);
@@ -123,7 +125,7 @@ namespace ComedorMari
             string dia = DateTime.Now.ToString("dddd");
             if(dia.ToLower()=="sábado" || dia.ToLower() == "saturday")
             {
-                agregar.Factura(int.Parse(valores[0]),int.Parse(TotalPagar()));
+                agregar.Factura(int.Parse(valores[0]));
             }
             else
             {

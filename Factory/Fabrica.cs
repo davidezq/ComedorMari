@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ComedorMari.Factory
 {
+    //la clase fábrica que nos ayudará a crear las clases Clientes y Productos
     public class Fabrica
     {
         public const int Clientes = 1;
@@ -20,8 +21,6 @@ namespace ComedorMari.Factory
                     return new Clientes();
                 case Productos:
                     return new Productos();
-                //case Facturas:
-                //    return new Facturas();
                 default:
                     return null;
             }

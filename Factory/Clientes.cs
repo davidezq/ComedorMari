@@ -88,7 +88,7 @@ namespace ComedorMari.Factory
         {
         }
 
-        public override void Factura(int idCliente,int total)
+        public override void Factura(int idCliente)
         {
         }
     }

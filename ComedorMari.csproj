@@ -128,7 +128,6 @@
     <Compile Include="Factory\AccionesBD.cs" />
     <Compile Include="Factory\Clientes.cs" />
     <Compile Include="Factory\Fabrica.cs" />
-    <Compile Include="Factory\pdffont.cs" />
     <Compile Include="Factory\Productos.cs" />
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>

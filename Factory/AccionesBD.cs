@@ -12,17 +12,19 @@ namespace ComedorMari.Factory
     //En esta clase estan las diferentes funciones que heredaran la clase clientes y la clase productos
     public abstract class AccionesBD
     {
+        //pensada para insertar datos a la base de datos
         public abstract void Insertar(List<string>Datos);
+        //pensada para mostrar datos en un datagridview
         public abstract void Mostrar(DataGridView grid);
-
+        //pensada para llenar un combobox
         public abstract void LlenarCombo(ComboBox cb);
 
-        //
+        //Pensada para ingresar las compras
         public abstract void IngresarCompra(List<string> Datos);
-
+        //Pensada para llenar detalle de los clientes
         public abstract void LlenarDetalle(DataGridView grid, string Num);
-
-        public abstract void Factura(int id,int total);
+        //Pensada para imprimir facturas o reportes
+        public abstract void Factura(int id);
 
     }
 }
