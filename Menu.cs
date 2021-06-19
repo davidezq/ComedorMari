@@ -117,6 +117,7 @@ namespace ComedorMari
 
         private void btnFacturarFacturas_Click(object sender, EventArgs e)
         {
+            //Implementando Factory
             AccionesBD agregar = Fabrica.AccionesTablas(Fabrica.Productos);
             string Unido;
             char delimitador = '-';
